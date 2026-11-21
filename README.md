@@ -1,5 +1,5 @@
 # สรุปเนื้อหา ND02-week1
-![Uploading Full-Stack_Developer_ยุค_AI.png…]()
+<img width="2752" height="1536" alt="11" src="https://github.com/user-attachments/assets/5badb6d9-c6a7-4c04-b275-b4c1d0fa2226" />
 1. ภาพรวมและแนวคิดหลัก (Core Concept)
    - การปรับตัวสู่โลกฝั่งฮาร์ดแวร์และหุ่นยนต์: ในยุค AI นักพัฒนาสาย Full-stack ต้องขยายขอบเขตทักษะจากการพัฒนา Web, Mobile หรือ Desktop แบบเดิม ไปสู่การเชื่อมต่อกับ IoT, Industrial IoT, Automation และ Robotics
    - ย้ายบทบาทจาก "ผู้ใช้" เป็น "ผู้สร้าง": นักพัฒนาต้องนิยามตัวเองใหม่ เพื่อสร้างระบบและเครื่องมือ AI ที่ใช้งานได้จริงบนฮาร์ดแวร์
