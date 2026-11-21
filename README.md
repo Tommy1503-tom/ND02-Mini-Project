@@ -160,4 +160,6 @@ Perceptual Scaling (Logarithmic Scale): ปรับสเกลการวั�
 แอปพลิเคชัน nRF Connect บนสมาร์ทโฟนสำหรับการทดสอบสัญญาณ BLE
 .
 
+# สรุปเนื้อหา ND02-week5
+workshop onsite
 
