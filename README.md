@@ -87,3 +87,28 @@ Device เป็นเจ้าของ State จริง: App ทำหน้
 การแยก Layer ของ App: ควรแยกส่วน Transport, Connection Manager, Telemetry Binding และ Command Dispatcher เพื่อให้สามารถสลับช่องทางสื่อสาร (Serial / BLE / Wi-Fi) ได้โดยไม่ต้องแก้ไข Logic หลักของ App
 .
 Gateway / Service กลาง: เมื่อต้องการให้หลาย App หรือผู้ใช้หลายคนเข้าถึง Device พร้อมกัน หรือต้องการเก็บ History ย้อนหลัง จำเป็นต้องใช้ Gateway เป็นตัวกลางจัดการแทนการต่อตรงแบบ Point-to-Point    
+
+# สรุปเนื้อหา ND02-week3
+![Uploading 22.png…]()
+นื้อหาในเอกสารสรุปรายละเอียดของ ชุดการเรียนรู้เชิงปฏิบัติการ (Workshops) สำหรับการเชื่อมต่อเว็บแอปพลิเคชันเข้ากับอุปกรณ์ฮาร์ดแวร์ โดยเน้นการจำลองอุปกรณ์เพื่อทดสอบระบบบนเครื่องคอมพิวเตอร์ก่อนการใช้งานบอร์ดจริง
+ โดยแบ่งเป็นหัวข้อสำคัญดังนี้:
+1. ภาพรวมการเรียนรู้ (Overview)
+การทดลองทั้งหมดรันบนเครื่องคอมพิวเตอร์พกพา (Laptop) โดยไม่จำเป็นต้องมีบอร์ด ESP32 จริงในสัปดาห์นี้
+ระบบใช้อุปกรณ์จำลอง (Simulated Device) ผ่าน สคริปต์ Python บน Virtual Serial Port และใช้ สมาร์ทโฟน สำหรับทดสอบการเชื่อมต่อไร้สายผ่าน Bluetooth
+2. ลำดับบทเรียน Workshop ทั้ง 7 บท (Workshop List)
+01 Getting started — Vite+ environment: จัดเตรียมสภาพแวดล้อมการทำงานด้วย Vite+ (vp CLI) เพื่อรันแอปพลิเคชันบน localhost
+02 DOM + state — the control panel: สร้างหน้าจอ Dashboard สำหรับควบคุม โดยยังไม่ต้องเชื่อมต่อกับอุปกรณ์
+03 Serial plumbing — the fake device: ตั้งค่าการเชื่อมต่อ Virtual Serial Pair ร่วมกับสคริปต์ fake_device.py เพื่อทดสอบรับส่งข้อมูลทาง Raw Console
+04 Web Serial read — telemetry: อ่านค่าข้อมูลสถานะ (Telemetry) จากอุปกรณ์ผ่าน Web Serial API (requestPort → Streams) และแสดงผลบน Live Gauge
+05 Web Serial write — commands: ส่งคำสั่ง (Commands) จากแอปไปยังอุปกรณ์ เช่น การเปลี่ยนสีไฟ LED และปรับอัตราการทำงานแบบครบวงจร
+06 Web Bluetooth — phone as peripheral: สแกน เชื่อมต่อ และอ่านค่าจากสมาร์ทโฟนที่จำลองเป็นอุปกรณ์ BLE Peripheral
+07 Capstone — device dashboard: รวมระบบทั้งหมดเข้าด้วยกันเพื่อสร้างแอปพลิเคชันเฝ้าระวังและควบคุมอุปกรณ์แบบสมบูรณ์
+3. เครื่องมือที่ต้องเตรียมความพร้อม (Prerequisites)
+Vite+ (vp CLI): ใช้เป็น Dev Server และ Toolchain
+Google Chrome หรือ Microsoft Edge: เนื่องจากรองรับ Web Serial และ Web Bluetooth เฉพาะเบราว์เซอร์ตระกูล Chromium เท่านั้น
+Python ≥ 3.10 + pyserial: ใช้สำหรับรันสคริปต์จำลองอุปกรณ์ fake_device.py
+socat (macOS/Linux) หรือ com0com (Windows): ใช้สำหรับสร้างคู่พอร์ตอนุกรมเสมือน (Virtual Serial Port Pair)
+Smartphone + แอปพลิเคชัน nRF Connect: ใช้สำหรับจำลองโทรศัพท์ให้เป็นอุปกรณ์ BLE Peripheral
+4. ข้อสำคัญในการพัฒนา (Key Takeaway)
+อุปกรณ์จำลองใช้โปรโตคอลสื่อสารแบบ JSON-lines ซึ่งเป็นโครงสร้างเดียวกับที่จะใช้งานบนบอร์ดจริง ทำให้โค้ดที่เขียนทดสอบทั้งหมดสามารถนำไปใช้ต่อได้ทันทีโดยไม่ต้องเขียนใหม่
+
